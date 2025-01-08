@@ -27,7 +27,7 @@ export class Component<ComponentData, ComponentMethods> {
     this.mountedHook = options.mounted;
     this.updatedHook = options.updated;
     this.unmountedHook = options.unmounted;
-    this.render = options.render.bind(this);
+    this.render = this.createRenderWrapper(options.render.bind(this));
   }
 
   private parseMethods<T>(
@@ -58,5 +58,14 @@ export class Component<ComponentData, ComponentMethods> {
       this._vNode = newVNode;
     };
     render(update);
+  }
+
+  private createRenderWrapper(originalRender: () => VNode): () => VNode {
+    return () => {
+      if (this.mountedHook) {
+        this.mountedHook()
+      }
+      return originalRender();
+    };
   }
 }

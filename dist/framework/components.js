@@ -15,7 +15,7 @@ export class Component {
         this.mountedHook = options.mounted;
         this.updatedHook = options.updated;
         this.unmountedHook = options.unmounted;
-        this.render = options.render.bind(this);
+        this.render = this.createRenderWrapper(options.render.bind(this));
     }
     parseMethods(methods, context) {
         return Object.entries(methods)
@@ -40,5 +40,13 @@ export class Component {
             this._vNode = newVNode;
         };
         render(update);
+    }
+    createRenderWrapper(originalRender) {
+        return () => {
+            if (this.mountedHook) {
+                this.mountedHook();
+            }
+            return originalRender();
+        };
     }
 }
