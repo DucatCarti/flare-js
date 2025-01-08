@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "target": "es2022",
+    "module": "es2022",
+    "removeComments": true,
+    "rootDir": "./",
+    "outDir": "./dist",
+    "typeRoots": ["./types"],
+    "strict": true,
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "paths": {
+    "@/*": ["./*"]
+  }
+}

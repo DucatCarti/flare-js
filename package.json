@@ -1,0 +1,25 @@
+{
+  "name": "flare-js",
+  "version": "1.0.0",
+  "description": "JavaScript framework for EFKO",
+  "main": "index.ts",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DucatCarti/flare-js.git"
+  },
+  "author": "yu.d.golev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DucatCarti/flare-js/issues"
+  },
+  "homepage": "https://github.com/DucatCarti/flare-js#readme",
+
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0"
+  }
+}
