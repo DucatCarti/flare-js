@@ -1,6 +1,3 @@
-import { MyComponent } from "../../EFKO/Flare/src/components/MyComponent.js";
-import { MyComponent3 } from "../../EFKO/Flare/src/components/MyComponent3.js";
-import { MyComponent2 } from "../../EFKO/Flare/src/components/MyComponent2.js";
 import { reactive, VNode } from "./index";
 import { CurrentRoute, Route, RouteParams } from "./types";
 

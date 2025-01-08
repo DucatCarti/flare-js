@@ -1,5 +1,5 @@
 {
-  "name": "flare-js",
+  "name": "efko-flare-js",
   "version": "1.0.0",
   "description": "JavaScript framework for EFKO",
   "main": "dist/index.js",
@@ -16,10 +16,9 @@
     "url": "https://github.com/DucatCarti/flare-js/issues"
   },
   "homepage": "https://github.com/DucatCarti/flare-js#readme",
-
   "devDependencies": {
-    "typescript": "^5.7.2",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0"
+    "@typescript-eslint/parser": "^6.21.0",
+    "typescript": "^5.7.2"
   }
 }
