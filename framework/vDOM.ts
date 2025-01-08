@@ -38,13 +38,7 @@ export function mount(
   mountedHook?: Hook,
 ): void {
 
-  if (vNode === null) {
-    return;
-  }
-
   const element = document.createElement(vNode.tag);
-
-  console.log(vNode, "vNode");
 
   if (vNode.props) {
     Object.entries(vNode.props).forEach(([key, value]) => {
