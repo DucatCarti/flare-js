@@ -20,6 +20,9 @@ function triggerUnMountedHook(unmountedHook) {
     }
 }
 export function mount(vNode, container, mountedHook) {
+    if (vNode === null) {
+        return;
+    }
     const element = document.createElement(vNode.tag);
     console.log(vNode, "vNode");
     if (vNode.props) {

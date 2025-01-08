@@ -11,14 +11,14 @@ export class Router {
   routes: Route[];
 
   constructor(options) {
-    this.routes = options.routes;
+    this.routes = options;
   }
 
   view(): string | null | VNode {
     const currentPath = currentRoute.path;
-    if (currentPath === "/") {
-      return null;
-    }
+    // if (currentPath === "/") {
+    //   return null;
+    // }
 
     const matchedRoute = this.routes.find((route) => {
       const params = matchRoute(currentPath, route.path);

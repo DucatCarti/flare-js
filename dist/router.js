@@ -6,13 +6,10 @@ const currentRoute = reactive({
 export class Router {
     routes;
     constructor(options) {
-        this.routes = options.routes;
+        this.routes = options;
     }
     view() {
         const currentPath = currentRoute.path;
-        if (currentPath === "/") {
-            return null;
-        }
         const matchedRoute = this.routes.find((route) => {
             const params = matchRoute(currentPath, route.path);
             if (params) {
