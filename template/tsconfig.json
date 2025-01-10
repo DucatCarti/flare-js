@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "jsxFactory": "h", // Укажите фабрику функций
+    "jsxFragmentFactory": "Fragment", // Укажите фабрику для фрагментов
+    "moduleResolution": "node",
+    "jsx": "preserve", // Используйте для Vue
+    "noImplicitAny": false,
+    "target": "es2022",
+    "module": "es2022",
+    "removeComments": true,
+    "rootDir": "./",
+    "outDir": "./dist",
+    "typeRoots": ["./types"],
+    "strict": true,
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "paths": {
+    "@/*": ["./*"]
+  }
+}

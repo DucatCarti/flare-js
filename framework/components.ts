@@ -2,6 +2,10 @@ import { mount, diffing } from "./vDOM";
 import { VNode } from "./types";
 import { render, reactive } from "./reactive";
 
+interface RouteInComponent {
+  params?: unknown
+}
+
 export class Component<ComponentData, ComponentMethods> {
   data: ComponentData;
   methods: ComponentMethods;
@@ -10,6 +14,7 @@ export class Component<ComponentData, ComponentMethods> {
   mountedHook?: () => void;
   updatedHook?: () => void;
   unmountedHook?: () => void;
+  $route: RouteInComponent | null;
 
   constructor(options: {
     data: () => ComponentData;
@@ -28,6 +33,7 @@ export class Component<ComponentData, ComponentMethods> {
     this.updatedHook = options.updated;
     this.unmountedHook = options.unmounted;
     this.render = this.createRenderWrapper(options.render.bind(this));
+    this.$route = null
   }
 
   private parseMethods<T>(
@@ -49,6 +55,7 @@ export class Component<ComponentData, ComponentMethods> {
 
     const update = () => {
       const newVNode = this.render();
+      // TODO if по код стайлу
       if (!this._vNode) {
         mount(newVNode, container, this.mountedHook?.bind(this));
       }

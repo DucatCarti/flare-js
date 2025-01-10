@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+@import "_variables.css";
+
+html, body, .app {
+  height: 100%;
+}
+
+body {
+  font-family: "Exo 2", Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .app {
+    padding: 15px 0;
+  }
+}

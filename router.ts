@@ -6,19 +6,15 @@ const currentRoute = reactive<CurrentRoute>({
   params: {},
 });
 
-// TODO роутер сделать конструктором
 export class Router {
   routes: Route[];
 
-  constructor(options) {
+  constructor(options: Route[]) {
     this.routes = options;
   }
 
   view(): string | null | VNode {
     const currentPath = currentRoute.path;
-    // if (currentPath === "/") {
-    //   return null;
-    // }
 
     const matchedRoute = this.routes.find((route) => {
       const params = matchRoute(currentPath, route.path);
@@ -34,7 +30,7 @@ export class Router {
       return matchedRoute.component.render();
     }
 
-    // TODO обработка 404
+    // TODO реализовать обработку не существующих маршрутов
     alert("404");
     return null;
   }
@@ -61,6 +57,5 @@ function matchRoute(path: string, routePath: string): RouteParams | null {
     }
     return part === pathParts[index];
   });
-
   return isMatch ? params : null;
 }
