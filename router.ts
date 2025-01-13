@@ -1,5 +1,6 @@
-import { reactive, VNode } from "./index";
+import {Component, reactive, VNode} from "./index";
 import { CurrentRoute, Route, RouteParams } from "./types";
+import { NotFoundPage } from './framework/components/notFoundPage'
 
 const currentRoute = reactive<CurrentRoute>({
   path: window.location.pathname,
@@ -30,9 +31,9 @@ export class Router {
       return matchedRoute.component.render();
     }
 
-    // TODO реализовать обработку не существующих маршрутов
-    alert("404");
-    return null;
+    const CustomNotFoundPage = this.routes.find(route => route.notFoundPage === true)
+
+    return CustomNotFoundPage ? CustomNotFoundPage.component.render() : NotFoundPage.render();
   }
 
   push(url: string): void {

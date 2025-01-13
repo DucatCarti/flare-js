@@ -14,6 +14,7 @@ export interface Route {
     $route?: { params: RouteParams };
   };
   params?: RouteParams;
+  notFoundPage?: false | boolean
 }
 
 export interface CurrentRoute {

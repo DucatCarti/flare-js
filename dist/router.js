@@ -1,4 +1,5 @@
 import { reactive } from "./index";
+import { NotFoundPage } from './framework/components/notFoundPage';
 const currentRoute = reactive({
     path: window.location.pathname,
     params: {},
@@ -22,8 +23,8 @@ export class Router {
             matchedRoute.component.$route = { params: matchedRoute.params || {} };
             return matchedRoute.component.render();
         }
-        alert("404");
-        return null;
+        const CustomNotFoundPage = this.routes.find(route => route.notFoundPage === true);
+        return CustomNotFoundPage ? CustomNotFoundPage.component.render() : NotFoundPage.render();
     }
     push(url) {
         window.history.pushState({}, "", url);
