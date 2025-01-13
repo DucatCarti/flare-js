@@ -1,6 +1,6 @@
 {
   "name": "efko-flare-js",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "JavaScript framework for EFKO",
   "main": "dist/index.js",
   "scripts": {
