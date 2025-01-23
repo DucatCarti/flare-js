@@ -8,5 +8,8 @@ export const NotFoundPage = new Component({
         return {
 
         }
+    },
+    methods: {
+
     }
 })

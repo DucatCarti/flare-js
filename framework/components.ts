@@ -7,8 +7,8 @@ interface RouteInComponent {
 }
 
 export class Component<ComponentData, ComponentMethods> {
-  data?: ComponentData;
-  methods?: ComponentMethods;
+  data: ComponentData;
+  methods: ComponentMethods;
   render: () => VNode;
   _vNode: VNode | null;
   mountedHook?: () => void;
@@ -18,19 +18,15 @@ export class Component<ComponentData, ComponentMethods> {
 
   constructor(options: {
     data: () => ComponentData;
-    methods?: ComponentMethods;
+    methods: ComponentMethods;
     render: () => VNode;
     mounted?: () => void;
     updated?: () => void;
     unmounted?: () => void;
     [key: string]: unknown;
   }) {
-    if (options.data) {
-      this.data = reactive<ComponentData>(options.data());
-    }
-    if (options.methods) {
-      this.methods = this.parseMethods(options.methods, this);
-    }
+    this.data = reactive<ComponentData>(options.data());
+    this.methods = this.parseMethods(options.methods, this);
     this._vNode = null;
 
     this.mountedHook = options.mounted;
