@@ -17,7 +17,7 @@ export class Component<ComponentData, ComponentMethods> {
   $route: RouteInComponent | null;
 
   constructor(options: {
-    data?: () => ComponentData;
+    data: () => ComponentData;
     methods?: ComponentMethods;
     render: () => VNode;
     mounted?: () => void;
