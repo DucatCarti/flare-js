@@ -14,7 +14,7 @@ export class Component<ComponentData, ComponentMethods> {
   mountedHook?: () => void;
   updatedHook?: () => void;
   unmountedHook?: () => void;
-  $route: RouteInComponent | null;
+  $route: RouteInComponent;
 
   constructor(options: {
     data: () => ComponentData;
@@ -33,7 +33,7 @@ export class Component<ComponentData, ComponentMethods> {
     this.updatedHook = options.updated;
     this.unmountedHook = options.unmounted;
     this.render = this.createRenderWrapper(options.render.bind(this));
-    this.$route = null
+    this.$route = { }
   }
 
   private parseMethods<T>(

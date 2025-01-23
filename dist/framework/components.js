@@ -10,18 +10,14 @@ export class Component {
     unmountedHook;
     $route;
     constructor(options) {
-        if (options.data) {
-            this.data = reactive(options.data());
-        }
-        if (options.methods) {
-            this.methods = this.parseMethods(options.methods, this);
-        }
+        this.data = reactive(options.data());
+        this.methods = this.parseMethods(options.methods, this);
         this._vNode = null;
         this.mountedHook = options.mounted;
         this.updatedHook = options.updated;
         this.unmountedHook = options.unmounted;
         this.render = this.createRenderWrapper(options.render.bind(this));
-        this.$route = null;
+        this.$route = {};
     }
     parseMethods(methods, context) {
         return Object.entries(methods)

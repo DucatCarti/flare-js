@@ -5,5 +5,6 @@ export const NotFoundPage = new Component({
     },
     data() {
         return {};
-    }
+    },
+    methods: {}
 });
